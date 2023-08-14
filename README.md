@@ -1,2 +1,3 @@
-# Deterministic and Stochastic Environment 
-Aim: Setting up Deterministic and Stochastic Gym Environment 
+# Reinforcement Learning
+
+#Setting up Deterministic and Stochastic Gym Environment 
