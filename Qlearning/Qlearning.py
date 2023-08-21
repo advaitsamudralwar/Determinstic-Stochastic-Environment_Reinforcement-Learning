@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
     Attempt 6: Epsilon Greedy Approach : Epsilon value - 1 (300 Episodes- 50 Max step/Episode): Epsilon decay by 0.1 every 15 episode:: Converged
 
-    Attempt 7: Epsilon Greedy Approach : Epsilon value - 1 (1000 Episodes- 100 Max step/Episode): Epsilon decay by 0.1 every 30 episode:: 
+    Attempt 7: Epsilon Greedy Approach : Epsilon value - 1 (1000 Episodes- 100 Max step/Episode): Epsilon decay by 0.1 every 30 episode:: Converged
 
     '''
     env = gym.make('FrozenLake-v1', desc=None, map_name="4x4", is_slippery=False, render_mode="human")
