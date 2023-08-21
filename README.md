@@ -1,14 +1,14 @@
 # Reinforcement Learning
 
-****Deterministic and Stochastic Gym Environment****
+# ****Deterministic and Stochastic Gym Environment****
 
   Created deterministic and stochistic enviroment for reinforcement learning.
 
-****Q-Learning****
+# ****Q-Learning****
 
-Implemention uses Frozen Lake Gym Env. 
+**Implemention uses Frozen Lake Gym Env**
 
-Action Space
+**Action Space**
 The agent takes a 1-element vector for actions. The action space is (dir), where dir decides direction to move in which can be:
 
 0: LEFT
@@ -16,31 +16,28 @@ The agent takes a 1-element vector for actions. The action space is (dir), where
 2: RIGHT
 3: UP
 
-Observation Space
+**Observation Space**
 The observation is a value representing the agent’s current position as current_row * nrows + current_col (where both the row and col start at 0). For example, the goal position in the 4x4 map can be calculated as follows: 3 * 4 + 3 = 15. The number of possible observations is dependent on the size of the map. For example, the 4x4 map has 16 possible observations.
 
-Rewards:
+**Rewards:**
 Reach goal(G): +1
 Reach hole(H): 0
 Reach frozen(F): 0
 
-Approaches:
 
-  Approach 1: Started with explore only once in first episode:: DOES NOT CONVERGE as the enviroment does not have any rewards for any state except for the target state where the reward is one. So the agent keeps exploiting an empty Q table repeating the same action without learning.
+**Approach:**
 
-  Approach 2: Epsilon Greedy Approach : Epsilon value - 0.1 (1300 Episodes- 100 Max step/Episode):: With probability os exploration being too low the agent could reach the target even once. DID NOT CONVERGE
+_Approach 1_: The initial approach involved exploring only once in the first episode. However, this approach did not converge because the environment lacked rewards for any state except the target state, where the reward was set to one. Consequently, the agent would repeatedly exploit an empty Q-table by choosing the same action without learning.
 
-  Approach 3: Epsilon Greedy Approach : Epsilon value - 0.3 (100  Episodes= 100 Max step/Episode):: Even through the probablity was increased the agent could not reach target so that the Q table values could be updated for any state-action pair. DID NOT CONVERGE
+_Approach 2_: Employed the Epsilon Greedy Approach with an epsilon value of 0.1. Over 1300 episodes, with a maximum of 100 steps per episode, the agent's exploration probability was very low, resulting in rare occurrences of reaching the target state. Unfortunately, this approach did not converge either.
 
-  Approach 4: Epsilon Greedy Approach : Epsilon value - 1 (300 Episodes- 50 Max step/Episode): Epsilon decay by 0.1 every 15 episode:: To enable the agent to explore more in the begining and slowly increase the exploting tendancy by reducing epsilon value. CONVERGED
-  
-Final Approach: Epsilon Greedy Approach : Epsilon value - 1 (1000 Episodes- 100 Max step/Episode): Epsilon decay by 0.1 every 30 episode:: Converged
-In order for the agent to start learning the agent has to reach the goal state atleast once in frozen-lake envirnoment. It is due to reward pattern which only gives the agent a reward when it reaches final state and 0 until then. So until the agent reaches the target state atleast once the Q-table values remain empty. As the agent reaches the target state, the Q-table values start getting updated based reward received from the target state.
-To confirm the agent's behaviour and effect of Epsilon decay the number of episodes were increased. As the exploring probability goes down and explotation probablity goes up over 1000 episodes the agents learn to select best actions which lead it to the target. 
+_Approach 3_: Implemented the Epsilon Greedy Approach with an increased epsilon value of 0.3. Across 100 episodes with a maximum of 100 steps per episode, the exploration probability was raised. Nevertheless, the agent still struggled to reach the target state, preventing updates to the Q-table values. This approach also failed to converge.
 
+_Approach 4_: Employed the Epsilon Greedy Approach with an initial epsilon value of 1.0, which decayed by 0.1 every 15 episodes. This strategy aimed to encourage exploration at the outset and gradually shift toward exploitation by reducing epsilon. Through 300 episodes, each with a maximum of 50 steps, this approach managed to converge successfully.
 
+_Final Approach_: Utilized the Epsilon Greedy Approach with an initial epsilon value of 1.0, decaying by 0.1 every 30 episodes. This approach was further tested with 1000 episodes, each permitting a maximum of 100 steps. The continuous reduction of epsilon fostered increased exploitation while still maintaining exploration. Ultimately, this approach yielded convergence.
 
-
+To facilitate the agent's learning process, it was essential for the agent to reach the goal state at least once in the frozen-lake environment. The reward structure only granted rewards upon reaching the final state and provided no rewards before that point. Consequently, until the agent successfully reached the target state, the Q-table values remained uninitialized. As soon as the agent achieved the target state, the Q-table values began updating based on the rewards received from the target state. To validate the agent's behavior and evaluate the impact of Epsilon decay, the number of episodes was extended. Over 1000 episodes, as the exploration probability diminished and the exploitation probability increased, the agent progressively learned to select optimal actions leading it to the target state.
 
 
 
