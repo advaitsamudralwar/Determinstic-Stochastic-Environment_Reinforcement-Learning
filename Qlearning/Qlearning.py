@@ -71,22 +71,7 @@ class Qlearning:
 
 if __name__ == "__main__":
     '''
-    Attempt 1: Started with explore only once in first episode:: DOES NOT CONVERGE
-
-    Attempt 2: Epsilon Greedy Approach : Epsilon value - 0.1 (1300 Episodes- 100 Max step/Episode):: DID NOT CONVERGE
-
-    Attempt 3: Epsilon Greedy Approach : Epsilon value - 0.1 (100  Episodes= 100 Max step/Episode): explore until reaches goal 
-    atleast once(Keeps exploring wrong logic)
-
-    Attempt 4: Epsilon Greedy Approach : Epsilon value - 0.3 (100  Episodes= 100 Max step/Episode):: DID NOT CONVERGE
-
-    Attempt 5: Epsilon Greedy Approach : Epsilon value - 0.4 (1000  Episodes= 100 Max step/Episode):: 
-    DID NOT CONVERGEexplore until reaches goal atleast once(Keeps exploring wrong logic)
-
-    Attempt 6: Epsilon Greedy Approach : Epsilon value - 1 (300 Episodes- 50 Max step/Episode): Epsilon decay by 0.1 every 15 episode:: Converged
-
-    Attempt 7: Epsilon Greedy Approach : Epsilon value - 1 (1000 Episodes- 100 Max step/Episode): Epsilon decay by 0.1 every 30 episode:: Converged
-
+    Final Approach 7: Epsilon Greedy Approach : Epsilon value - 1 (1000 Episodes- 100 Max step/Episode): Epsilon decay by 0.1 every 30 episode:: Converged
     '''
     env = gym.make('FrozenLake-v1', desc=None, map_name="4x4", is_slippery=False, render_mode="human")
 
